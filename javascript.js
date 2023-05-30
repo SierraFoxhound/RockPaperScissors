@@ -1,12 +1,12 @@
 
 //Create function getComputerChoice, will return rock, etc
-const rock = 'Rock'
-const paper = 'Paper'
-const scissors = 'Scissors'
+const rock = 'rock'
+const paper = 'paper'
+const scissors = 'scissors'
 var arr = [rock, paper, scissors]
 var idx = Math.floor(Math.random() * arr.length);
 
-function getComputerChoice (arr, idx) {
+function getComputerChoice(arr, idx) {
    let choice = (arr[idx]);
    return choice
 }
@@ -19,34 +19,36 @@ Write function that plays 1 round, have two parameters
  (playerSelection, computerSelection) then return string showing 
  winner. Side note: make user input case-insensitve
 */
-const para = document.querySelector(p); //THINK FIGURE IT OUT
-const computerSelection = getComputerChoice;
+const para = document.querySelector("#para");
+let computerSelection = getComputerChoice(arr, idx);
+const playerSelection = 'rock';
+//console.log(computerSelection);
 
 function match(playerSelection, computerSelection) {
-   if (playerSelection === 'rock', computerSelection === rock) {
+   if (playerSelection === 'rock' && computerSelection === rock) {
       para.textContent = 'Tie';
-   } else if (playerSelection === 'rock', computerSelection === paper) {
+   } else if (playerSelection === 'rock' && computerSelection === paper) {
       para.textContent = 'Win';
-   } else if (playerSelection === 'rock', computerSelection === scissors) {
+   } else if (playerSelection === 'rock' && computerSelection === scissors) {
       para.textContent = 'Lose';
-   } else if (playerSelection === 'paper', computerSelection === rock) {
+   } else if (playerSelection === 'paper' && computerSelection === rock) {
       para.textContent = 'Win';
-   } else if (playerSelection === 'paper', computerSelection === paper) {
+   } else if (playerSelection === 'paper' && computerSelection === paper) {
       para.textContent = 'Tie';
-   } else if (playerSelection === 'paper', computerSelection === scissors) {
+   } else if (playerSelection === 'paper' && computerSelection === scissors) {
       para.textContent = 'Lose';
-   } else if (playerSelection === 'scissors', computerSelection === rock) {
+   } else if (playerSelection === 'scissors' && computerSelection === rock) {
       para.textContent = 'Lose';
-   } else if (playerSelection === 'scissors', computerSelection === paper) {
+   } else if (playerSelection === 'scissors' && computerSelection === paper) {
       para.textContent = 'Win';
-   } else if (playerSelection === 'scissors', computerSelection === scissors) {
+   } else if (playerSelection === 'scissors' && computerSelection === scissors) {
       para.textContent = 'Tie';
    } else {
       para.textContent = 'Not an input';
    }
 
 }
-console.log(match(rock, computerSelection(arr,idx)));
+console.log(match(playerSelection, computerSelection));
 
 // return results of last function, going to need results for later
 //console.log results to see if it works
