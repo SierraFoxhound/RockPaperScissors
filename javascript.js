@@ -4,6 +4,7 @@ const rock = 'rock'
 const paper = 'paper'
 const scissors = 'scissors'
 var arr = [rock, paper, scissors]
+var u = arr.indexOf(name.toLowerCase()); // User Input Case Insensitive
 var idx = Math.floor(Math.random() * arr.length);
 
 function getComputerChoice(arr, idx) {
@@ -11,17 +12,19 @@ function getComputerChoice(arr, idx) {
    return choice
 }
 
-// Use console.log() to get result
+// Use console.log() to get result -DONE
 //console.log(getComputerChoice(arr,idx));
 
 /*
 Write function that plays 1 round, have two parameters 
  (playerSelection, computerSelection) then return string showing 
- winner. Side note: make user input case-insensitve
+ winner. Side note: make user input case-insensitve - 1/2 DONE
 */
 const para = document.querySelector("#para");
+const input = document.querySelector(".playerInput") //For input
 let computerSelection = getComputerChoice(arr, idx);
-const playerSelection = 'rock';
+const playerSelection = input; //TODO: Get this to work
+
 //console.log(computerSelection);
 
 function match(playerSelection, computerSelection) {
@@ -48,7 +51,10 @@ function match(playerSelection, computerSelection) {
    }
 
 }
-console.log(match(playerSelection, computerSelection));
+
+input.addEventListener("change", () => {
+   const num = parseFloat(input.value);
+});
 
 // return results of last function, going to need results for later
 //console.log results to see if it works
