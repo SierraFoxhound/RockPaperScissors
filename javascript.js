@@ -21,40 +21,54 @@ Write function that plays 1 round, have two parameters
  winner. Side note: make user input case-insensitve - 1/2 DONE
 */
 const para = document.querySelector("#para");
+const paras = document.querySelector("#paras");
 const input = document.querySelector(".playerInput") //For input
 let computerSelection = getComputerChoice(arr, idx);
-const playerSelection = input; //TODO: Get this to work
+//let playerSelection = num; //TODO: Get this to work
 
 //console.log(computerSelection);
 
+
 function match(playerSelection, computerSelection) {
    if (playerSelection === 'rock' && computerSelection === rock) {
-      para.textContent = 'Tie';
+      para.textContent = 'Tie: Rock ties with rock!';
    } else if (playerSelection === 'rock' && computerSelection === paper) {
-      para.textContent = 'Win';
+      para.textContent = 'Lose: Rock loses to paper!';
    } else if (playerSelection === 'rock' && computerSelection === scissors) {
-      para.textContent = 'Lose';
+      para.textContent = 'Win: Rock beats scissors!';
    } else if (playerSelection === 'paper' && computerSelection === rock) {
-      para.textContent = 'Win';
+      para.textContent = 'Win: Paper beats rock!';
    } else if (playerSelection === 'paper' && computerSelection === paper) {
-      para.textContent = 'Tie';
+      para.textContent = 'Tie: Paper ties with paper!';
    } else if (playerSelection === 'paper' && computerSelection === scissors) {
-      para.textContent = 'Lose';
+      para.textContent = 'Lose: Paper loses to scissors!';
    } else if (playerSelection === 'scissors' && computerSelection === rock) {
-      para.textContent = 'Lose';
+      para.textContent = 'Lose: Scissors loses to rock!';
    } else if (playerSelection === 'scissors' && computerSelection === paper) {
-      para.textContent = 'Win';
+      para.textContent = 'Win: Scissors beats paper!';
    } else if (playerSelection === 'scissors' && computerSelection === scissors) {
-      para.textContent = 'Tie';
+      para.textContent = 'Tie: Scissors ties with scissors!';
    } else {
       para.textContent = 'Not an input';
    }
 
 }
+//console.log(match(playerSelection, computerSelection)) //initiates game
 
-input.addEventListener("change", () => {
-   const num = parseFloat(input.value);
+input.addEventListener("change", function () {
+   const pChoice = (input.value);
+   if(pChoice === rock) {
+     match('rock', computerSelection);
+   } else if(input.value === paper) {
+     match('paper', computerSelection);
+   } else if(input.value === scissors) {
+     match('scissors', computerSelection);
+   } else {
+      paras.textContent = 'Not an inputs';
+   }
 });
+
+console.log
 
 // return results of last function, going to need results for later
 //console.log results to see if it works
