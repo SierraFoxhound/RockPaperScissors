@@ -23,9 +23,11 @@ Write function that plays 1 round, have two parameters
 */
 const para = document.querySelector("#para");
 const paras = document.querySelector("#paras");
+const cS = document.querySelector("#computerScore")
+const pS = document.querySelector("#playerScore")
 const input = document.querySelector(".playerInput") //For input
 let computerSelection = getComputerChoice(arr, idx);
-//let playerSelection = num; //TODO: Get this to work
+let playerSelection = 'rock'; //TODO: Get this to work
 let computerScore = 0;
 let playerScore = 0;
 
@@ -65,43 +67,59 @@ function match(playerSelection, computerSelection) {
 //console.log(match(playerSelection, computerSelection)) //initiates game
 
 
-input.addEventListener("change", function() {
-   const pChoice = (input.value);
-   if(pChoice.toLowerCase() === rock.toLowerCase()) {
-     match('rock', computerSelection);
-   } else if (pChoice.toLowerCase() === paper.toLowerCase()) {
-     match('paper', computerSelection);
-   } else if (pChoice.toLowerCase() === scissors.toLowerCase()) {
-     match('scissors', computerSelection);
-   } else {
-      para.textContent = 'Not an inputs';
-   }
-});
+
 
 //var u = arr.indexOf(pChoice.toLowerCase()); // User Input Case Insensitive
 
-// return results of last function, going to need results for later
-//console.log results to see if it works
-console.log(playerScore);
-console.log(computerScore);
+//-- return results of last function, going to need results for later
+//--console.log results to see if it works
+//console.log(playerScore);
+//console.log(computerScore);
 
 
-/*write new function called game().Use previous funciton inside of this
+
+/*--write new function called game().Use previous funciton inside of this
 to play 5 round games that keeps score and reports a winner or loser.
 */
-function game(match, ) {
+function game() {
    match(playerSelection, computerSelection);
+   console.log(playerScore);
+   console.log(computerScore);
+   cS.textContent = `Computer Score: ${computerScore}`;
+   pS.textContent = `playerScore ${playerScore}`;
+   /*match(playerSelection, computerSelection);
+   console.log(playerScore);
+   console.log(computerScore);
    match(playerSelection, computerSelection);
+   console.log(playerScore);
+   console.log(computerScore);
    match(playerSelection, computerSelection);
+   console.log(playerScore);
+   console.log(computerScore);
    match(playerSelection, computerSelection);
-   match(playerSelection, computerSelection);
+   console.log(playerScore);
+   console.log(computerScore);*/
 
    if (playerScore === 3) {
       paras.textContent = 'You win!'
    }
 }
 
+console.log(game(match()));
+
 //repeat playRound() function 5 times
 //use console.log to display results reach round and winner at the end
-
 //Use prompt to get input from the user.
+
+input.addEventListener("change", function () {
+   let pChoice = (input.value);
+   if (pChoice.toLowerCase() === rock.toLowerCase()) {
+      game(match('rock', computerSelection));
+   } else if (pChoice.toLowerCase() === paper.toLowerCase()) {
+      match('paper', computerSelection);
+   } else if (pChoice.toLowerCase() === scissors.toLowerCase()) {
+      match('scissors', computerSelection);
+   } else {
+      para.textContent = 'Not an inputs';
+   }
+});
