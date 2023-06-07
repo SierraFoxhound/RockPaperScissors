@@ -23,11 +23,13 @@ Write function that plays 1 round, have two parameters
 */
 const para = document.querySelector("#para");
 const paras = document.querySelector("#paras");
+const testInput = document.querySelector("#testInput")
 const cS = document.querySelector("#computerScore")
 const pS = document.querySelector("#playerScore")
 const input = document.querySelector(".playerInput") //For input
 let computerSelection = getComputerChoice(arr, idx);
-let playerSelection = 'rock'; //TODO: Get this to work
+//let pChoice = (input.value);
+//let playerSelection = pChoice.toLowerCase(); //TODO: Get this to work
 let computerScore = 0;
 let playerScore = 0;
 
@@ -35,32 +37,32 @@ let playerScore = 0;
 
 
 function match(playerSelection, computerSelection) {
-   if (playerSelection === 'rock' && computerSelection === rock) {
+   if (playerSelection == 'rock' && computerSelection === rock) {
       para.textContent = 'Tie: Rock ties with rock!';
    } else if (playerSelection === 'rock' && computerSelection === paper) {
       para.textContent = 'Lose: Rock loses to paper!';
       return computerScore++
-   } else if (playerSelection === 'rock' && computerSelection === scissors) {
+   } else if (playerSelection == 'rock' && computerSelection === scissors) {
       para.textContent = 'Win: Rock beats scissors!';
       return playerScore++
-   } else if (playerSelection === 'paper' && computerSelection === rock) {
+   } else if (playerSelection == paper && computerSelection === rock) {
       para.textContent = 'Win: Paper beats rock!';
       return playerScore++
-   } else if (playerSelection === 'paper' && computerSelection === paper) {
+   } else if (playerSelection == paper && computerSelection === paper) {
       para.textContent = 'Tie: Paper ties with paper!';
-   } else if (playerSelection === 'paper' && computerSelection === scissors) {
+   } else if (playerSelection == paper && computerSelection === scissors) {
       para.textContent = 'Lose: Paper loses to scissors!';
       return computerScore++
-   } else if (playerSelection === 'scissors' && computerSelection === rock) {
+   } else if (playerSelection == 'scissors' && computerSelection === rock) {
       para.textContent = 'Lose: Scissors loses to rock!';
       return computerScore++
-   } else if (playerSelection === 'scissors' && computerSelection === paper) {
+   } else if (playerSelection == 'scissors' && computerSelection === paper) {
       para.textContent = 'Win: Scissors beats paper!';
       return playerScore++
-   } else if (playerSelection === 'scissors' && computerSelection === scissors) {
+   } else if (playerSelection == 'scissors' && computerSelection === scissors) {
       para.textContent = 'Tie: Scissors ties with scissors!';
    } else {
-      para.textContent = 'Not an input';
+      para.textContent = 'turtle';
    }
 
 }
@@ -82,30 +84,23 @@ function match(playerSelection, computerSelection) {
 to play 5 round games that keeps score and reports a winner or loser.
 */
 function game() {
-   match(playerSelection, computerSelection);
-   console.log(playerScore);
-   console.log(computerScore);
+   match();
+   console.log('ps', playerScore);
+   console.log('cs', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
    pS.textContent = `playerScore ${playerScore}`;
-   /*match(playerSelection, computerSelection);
-   console.log(playerScore);
-   console.log(computerScore);
-   match(playerSelection, computerSelection);
-   console.log(playerScore);
-   console.log(computerScore);
-   match(playerSelection, computerSelection);
-   console.log(playerScore);
-   console.log(computerScore);
-   match(playerSelection, computerSelection);
-   console.log(playerScore);
-   console.log(computerScore);*/
+  
 
-   if (playerScore === 3) {
-      paras.textContent = 'You win!'
+   if (playerScore == 3) {
+      paras.textContent = 'You win!';
+   } else if (computerScore == 3) {
+      paras.textContent = 'You Lose';
+   } else {
+      paras.textContent = 'keep fighting';
    }
 }
 
-console.log(game(match()));
+//console.log(game(match()));
 
 //repeat playRound() function 5 times
 //use console.log to display results reach round and winner at the end
@@ -113,13 +108,13 @@ console.log(game(match()));
 
 input.addEventListener("change", function () {
    let pChoice = (input.value);
-   if (pChoice.toLowerCase() === rock.toLowerCase()) {
-      game(match('rock', computerSelection));
-   } else if (pChoice.toLowerCase() === paper.toLowerCase()) {
-      match('paper', computerSelection);
-   } else if (pChoice.toLowerCase() === scissors.toLowerCase()) {
-      match('scissors', computerSelection);
+   if (pChoice.toLowerCase() == rock.toLowerCase()) {
+      game(match(rock, computerSelection));
+   } else if (pChoice.toLowerCase() == paper.toLowerCase()) {
+      game(match(paper, computerSelection));
+   } else if (pChoice.toLowerCase() == scissors.toLowerCase()) {
+      game(match(scissors, computerSelection));
    } else {
-      para.textContent = 'Not an inputs';
+      testInput.textContent = 'Not an inputs';
    }
 });
