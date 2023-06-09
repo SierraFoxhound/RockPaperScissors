@@ -27,31 +27,35 @@ const testInput = document.querySelector("#testInput")
 const cS = document.querySelector("#computerScore")
 const pS = document.querySelector("#playerScore")
 const input = document.querySelector(".playerInput") //For input
-let computerSelection = getComputerChoice(arr, idx);
+//let computerSelection = getComputerChoice(arr, idx);
 //let pChoice = (input.value);
 
-let playerSelection = rock;//TODO: Get this to work
+let playerSelection = null;
 let computerScore = 0;
 let playerScore = 0;
 
-//console.log(computerSelection);
+console.log(computerSelection);
 
 
 function match(playerSelection, computerSelection) {
 
-   let sign = prompt("Choose your weapon!");
+   let computerSelection = getComputerChoice // figure this out
    
 
-   if (sign == rock) {
+/*
+   let sign = prompt("Choose your weapon: Rock, Paper, Scissors", '');
+
+   if (sign() == rock) {
       let = playerSelection = rock;
-   } else if (sign == paper) {
+   } else if (sign() == paper) {
       let = playerSelection = paper;
-   } else if (sign == scissors) {
+   } else if (sign() == scissors) {
       let = playerSelection = scissors;
    } else{
-      paras.textContent = 'no owrk'
+      //console.log('Not a weapon!');
+      alert(`${sign} is not a choice or a weapon!`)
    }
-
+*/
 
    if (playerSelection == 'rock' && computerSelection === rock) {
       para.textContent = 'Tie: Rock ties with rock!';
@@ -102,36 +106,60 @@ to play 5 round games that keeps score and reports a winner or loser.
 function game() {
   
    match(playerSelection, computerSelection);
-   console.log('ps', playerScore);
-   console.log('cs', computerScore);
+   console.log('Round 1!');
+   console.log(`Computer chose ${computerSelection}!`);
+   console.log('Player score:', playerScore);
+   console.log('Computer score:', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
-   pS.textContent = `playerScore ${playerScore}`;
-
+   pS.textContent = `Player Score: ${playerScore}`;
+/*
    match(playerSelection, computerSelection);
-   console.log('ps', playerScore);
-   console.log('cs', computerScore);
+   console.log('Round 2!');
+   console.log(`Computer chose ${computerSelection}!`);
+   console.log('Player score:', playerScore);
+   console.log('Computer score:', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
-   pS.textContent = `playerScore ${playerScore}`;
+   pS.textContent = `Player Score: ${playerScore}`;
    
    match(playerSelection, computerSelection);
-   console.log('ps', playerScore);
-   console.log('cs', computerScore);
+   console.log('Round 3!');
+   console.log(`Computer chose ${computerSelection}!`);
+   console.log('Player score:', playerScore);
+   console.log('Computer score:', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
-   pS.textContent = `playerScore ${playerScore}`;
-  
+   pS.textContent = `Player Score: ${playerScore}`;
+
+   match(playerSelection, computerSelection);
+   console.log('Round 4!');
+   console.log(`Computer chose ${computerSelection}!`);
+   console.log('Player score:', playerScore);
+   console.log('Computer score:', computerScore);
+   cS.textContent = `Computer Score: ${computerScore}`;
+   pS.textContent = `Player Score: ${playerScore}`;
+
+   match(playerSelection, computerSelection);
+   console.log('Final Round!');
+   console.log(`Computer chose ${computerSelection}!`);
+   console.log('Player score:', playerScore);
+   console.log('Computer score:', computerScore);
+   cS.textContent = `Computer Score: ${computerScore}`;
+   pS.textContent = `Player Score: ${playerScore}`;
+  */
 
    
-   if (playerScore == 3) {
+   if (playerScore > computerScore) {
       paras.textContent = 'You win!';
-   } else if (computerScore == 3) {
+   } else if (computerScore > playerScore) {
       paras.textContent = 'You Lose';
+   } else if (playerScore == computerScore){
+      paras.textContent = 'Tie!'
    } else {
-      paras.textContent = 'keep fighting';
+      paras.textContent = '';
    }
 }
 
 
-console.log(game());
+//console.log(game());
 
 //repeat playRound() function 5 times
 //use console.log to display results reach round and winner at the end
