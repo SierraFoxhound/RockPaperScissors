@@ -7,22 +7,16 @@ let scissors = 'scissors';
 
 //Create function getComputerChoice, will return rock, etc
 
-
-
 function getComputerChoice() {
    let arr = [rock, paper, scissors] 
    let idx = Math.floor(Math.random() * arr.length);
    return (arr[idx]);
 }
 
-// Use console.log() to get result -DONE
+//-- Use console.log() to get result -DONE
 //console.log(getComputerChoice(arr,idx));
 
-/*
-Write function that plays 1 round, have two parameters 
- (playerSelection, computerSelection) then return string showing 
- winner. Side note: make user input case-insensitve - 1/2 DONE
-*/
+
 const para = document.querySelector("#para");
 const paras = document.querySelector("#paras");
 const testInput = document.querySelector("#testInput")
@@ -31,17 +25,19 @@ const pS = document.querySelector("#playerScore")
 const input = document.querySelector(".playerInput") //For input
 //let computerSelection = getComputerChoice(arr, idx);
 //let pChoice = (input.value);
-
 let playerSelection = null;
 let computerScore = 0;
 let playerScore = 0;
-
 //console.log(`1st ${computerSelection}`);
 
-
+/*
+Write function that plays 1 round, have two parameters 
+ (playerSelection, computerSelection) then return string showing 
+ winner. Side note: make user input case-insensitve - DONE
+*/
 function match(playerSelection) {
 
-   let computerSelection = getComputerChoice(); // figure this out
+   let computerSelection = getComputerChoice();
    
 
 
@@ -116,20 +112,15 @@ function match(playerSelection) {
 }
 //console.log(match(playerSelection)) //initiates game
 
-
-
-
-//var u = arr.indexOf(pChoice.toLowerCase()); // User Input Case Insensitive
-
-//-- return results of last function, going to need results for later
-//--console.log results to see if it works
+//-- return results of last function, going to need results for later -DONE
+//--console.log results to see if it works -DONE
 //console.log(playerScore);
 //console.log(computerScore);
 
 
 
 /*--write new function called game().Use previous funciton inside of this
-to play 5 round games that keeps score and reports a winner or loser.
+to play 5 round games that keeps score and reports a winner or loser. - DONE
 */
 function game() {
    console.log('Round 1!');
@@ -189,13 +180,15 @@ function game() {
    }
 }
 
-
 //console.log(game()); -- initiates game function
 
-//repeat playRound() function 5 times
-//use console.log to display results reach round and winner at the end
-//Use prompt to get input from the user.
+//--TODO: (STATUS: DONE)
+//--repeat playRound() function 5 times -DONE
+//--use console.log to display results reach round and winner at the end -DONE
+//--Use prompt to get input from the user -DONE
+//----------------------------------------------------------
 
+//--Experimental input from user-- WIP
 /*
 input.addEventListener("change", function () {
    let pChoice = (input.value);
