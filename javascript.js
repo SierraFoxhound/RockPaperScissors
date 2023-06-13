@@ -1,16 +1,18 @@
 
 
-let rock = 'rock'
-let paper = 'paper'
-let scissors = 'scissors'
-var arr = [rock, paper, scissors]
+let rock = 'rock';
+let paper = 'paper';
+let scissors = 'scissors';
+
 
 //Create function getComputerChoice, will return rock, etc
-var idx = Math.floor(Math.random() * arr.length);
 
-function getComputerChoice(arr, idx) {
-   let choice = (arr[idx]);
-   return choice
+
+
+function getComputerChoice() {
+   let arr = [rock, paper, scissors] 
+   let idx = Math.floor(Math.random() * arr.length);
+   return (arr[idx]);
 }
 
 // Use console.log() to get result -DONE
@@ -34,59 +36,85 @@ let playerSelection = null;
 let computerScore = 0;
 let playerScore = 0;
 
-console.log(computerSelection);
+//console.log(`1st ${computerSelection}`);
 
 
-function match(playerSelection, computerSelection) {
+function match(playerSelection) {
 
-   let computerSelection = getComputerChoice // figure this out
+   let computerSelection = getComputerChoice(); // figure this out
    
 
-/*
+
    let sign = prompt("Choose your weapon: Rock, Paper, Scissors", '');
 
-   if (sign() == rock) {
+   if (sign.toLowerCase() == rock) {
       let = playerSelection = rock;
-   } else if (sign() == paper) {
+   } else if (sign.toLowerCase() == paper) {
       let = playerSelection = paper;
-   } else if (sign() == scissors) {
+   } else if (sign.toLowerCase() == scissors) {
       let = playerSelection = scissors;
    } else{
       //console.log('Not a weapon!');
       alert(`${sign} is not a choice or a weapon!`)
    }
-*/
+
 
    if (playerSelection == 'rock' && computerSelection === rock) {
       para.textContent = 'Tie: Rock ties with rock!';
+      alert('Tie: Rock ties with rock!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
    } else if (playerSelection === 'rock' && computerSelection === paper) {
       para.textContent = 'Lose: Rock loses to paper!';
+      alert('Lose: Rock loses to paper!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'rock' && computerSelection === scissors) {
       para.textContent = 'Win: Rock beats scissors!';
+      alert('Win: Rock beats scissors!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == paper && computerSelection === rock) {
       para.textContent = 'Win: Paper beats rock!';
+      alert('Win: Paper beats rock!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == paper && computerSelection === paper) {
       para.textContent = 'Tie: Paper ties with paper!';
+      alert('Tie: Paper ties with paper!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
    } else if (playerSelection == paper && computerSelection === scissors) {
-      para.textContent = 'Lose: Paper loses to scissors!';
+      alert('Lose: Paper loses to scissors!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'scissors' && computerSelection === rock) {
       para.textContent = 'Lose: Scissors loses to rock!';
+      alert('Lose: Scissors loses to rock!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'scissors' && computerSelection === paper) {
       para.textContent = 'Win: Scissors beats paper!';
+      alert('Win: Scissors beats paper!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == 'scissors' && computerSelection === scissors) {
       para.textContent = 'Tie: Scissors ties with scissors!';
+      alert('Tie: Scissors ties with scissors!');
+      console.log(`Player chose ${playerSelection}!`);
+      console.log(`Computer chose ${computerSelection}!`);
    } else {
       para.textContent = 'turtle';
    }
 
 }
-//console.log(match(playerSelection, computerSelection)) //initiates game
+//console.log(match(playerSelection)) //initiates game
 
 
 
@@ -104,67 +132,71 @@ function match(playerSelection, computerSelection) {
 to play 5 round games that keeps score and reports a winner or loser.
 */
 function game() {
-  
-   match(playerSelection, computerSelection);
    console.log('Round 1!');
-   console.log(`Computer chose ${computerSelection}!`);
+   match(playerSelection, );
+   //console.log(`Computer chose ${computerSelection}!`);
    console.log('Player score:', playerScore);
    console.log('Computer score:', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
    pS.textContent = `Player Score: ${playerScore}`;
-/*
-   match(playerSelection, computerSelection);
+
+   
    console.log('Round 2!');
-   console.log(`Computer chose ${computerSelection}!`);
+   match(playerSelection,);
+   //console.log(`Computer chose ${computerSelection}!`);
    console.log('Player score:', playerScore);
    console.log('Computer score:', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
    pS.textContent = `Player Score: ${playerScore}`;
    
-   match(playerSelection, computerSelection);
+   
    console.log('Round 3!');
-   console.log(`Computer chose ${computerSelection}!`);
+   match(playerSelection,);
+   //console.log(`Computer chose ${computerSelection}!`);
    console.log('Player score:', playerScore);
    console.log('Computer score:', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
    pS.textContent = `Player Score: ${playerScore}`;
 
-   match(playerSelection, computerSelection);
+   
    console.log('Round 4!');
-   console.log(`Computer chose ${computerSelection}!`);
+   match(playerSelection,);
+   //console.log(`Computer chose ${computerSelection}!`);
    console.log('Player score:', playerScore);
    console.log('Computer score:', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
    pS.textContent = `Player Score: ${playerScore}`;
 
-   match(playerSelection, computerSelection);
+   
    console.log('Final Round!');
-   console.log(`Computer chose ${computerSelection}!`);
+   match(playerSelection,);
+   //console.log(`Computer chose ${computerSelection}!`);
    console.log('Player score:', playerScore);
    console.log('Computer score:', computerScore);
    cS.textContent = `Computer Score: ${computerScore}`;
    pS.textContent = `Player Score: ${playerScore}`;
-  */
+  
 
    
    if (playerScore > computerScore) {
-      paras.textContent = 'You win!';
+      paras.textContent = 'Game result: You win!';
    } else if (computerScore > playerScore) {
-      paras.textContent = 'You Lose';
+      paras.textContent = 'Game result: You Lose!';
    } else if (playerScore == computerScore){
-      paras.textContent = 'Tie!'
+      paras.textContent = 'Game result: Tie!';
    } else {
       paras.textContent = '';
    }
 }
 
 
-//console.log(game());
+//console.log(game()); -- initiates game function
 
 //repeat playRound() function 5 times
 //use console.log to display results reach round and winner at the end
 //Use prompt to get input from the user.
 
+/*
 input.addEventListener("change", function () {
    let pChoice = (input.value);
    if (pChoice.toLowerCase() == rock.toLowerCase()) {
@@ -177,6 +209,6 @@ input.addEventListener("change", function () {
       testInput.textContent = 'Not an inputs';
    }
 });
-
+*/
 
 
