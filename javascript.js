@@ -26,6 +26,7 @@ const pS = document.querySelector("#playerScore");
 const btnRock = document.querySelector("#btnRock");
 const btnPaper = document.querySelector("#btnPaper");
 const btnScissors = document.querySelector("#btnScissors");
+const winRoundSoundEffect = document.getElementById("#winRoundSoundEffect");
 //let computerSelection = getComputerChoice(arr, idx);
 //let pChoice = (input.value);
 let playerSelection = null;
@@ -71,6 +72,7 @@ function match(playerSelection) {
       return computerScore++
    } else if (playerSelection == 'rock' && computerSelection === scissors) {
       matchResult.textContent = 'Win: Rock beats scissors!';
+      //winRoundSoundEffect.play();---------FIX THIS!!!!
       //alert('Win: Rock beats scissors!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);

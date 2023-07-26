@@ -8,27 +8,43 @@
     <title>Rock Paper Scissors game</title>
 </head>
 <body>
-  <h1>Rock Paper Scissors Machine</h1>
-    
-  <div class="playZone">
-    <h3>Choose your weapon!</h3>
-      <div class="buttonContainer">
-      <button id="btnRock">Rock</button>
-      <button id="btnPaper">Paper</button>
-      <button id="btnScissors">Scissors</button>
+  <div class="rpsContainer">
+    <h1>Rock Paper Scissors Machine</h1>
+    <div class="wholeContainer">  
+      <div class="playZone">
+
+        <h3>Choose your weapon!</h3>
+          <div class="buttonContainer">
+          <button id="btnRock" class="rockImg">Rock</button>
+          <button id="btnPaper" class="paperImg">Paper</button>
+          <button id="btnScissors" class="scissorsImg">Scissors</button>
+          </div>
+        <!--<input class="playerInput" type="input"> -->
       </div>
-     <!--<input class="playerInput" type="input"> -->
+
+      <!--<button id="play" onclick="game()">Play Me!</button>-->
+
+      <div class="resultContainer">
+        <div class="scoreContainer">
+          <h3>Score</h3>
+          <p id="playerScore">Player score: 0</p>
+          <p id="computerScore">Computer score: 0</p>
+        </div>
+        
+        <div class="matchContainer">
+          <h3>Round Result</h3>
+          <p id="matchResult"></p>
+        </div>
+        
+        <div class="winnerContainer">
+          <h3>Game Result</h3>
+          <p id="gameResult">Game result: </p>
+          <p id="testInput"></p>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <!--<button id="play" onclick="game()">Play Me!</button>-->
-
-  <div class="scoreContainer">
-    <p id="matchResult"></p>
-    <p id="playerScore">Player score: 0</p><p id="computerScore">Computer score: 0</p>
-    <p id="gameResult">Game result: </p>
-    <p id="testInput"></p>
-  </div>
-
   <script src="javascript.js"></script>  
 </body>
 </html>
