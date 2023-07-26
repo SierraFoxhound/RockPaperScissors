@@ -17,12 +17,15 @@ function getComputerChoice() {
 //console.log(getComputerChoice(arr,idx));
 
 
-const para = document.querySelector("#para");
-const paras = document.querySelector("#paras");
-const testInput = document.querySelector("#testInput")
-const cS = document.querySelector("#computerScore")
-const pS = document.querySelector("#playerScore")
-const input = document.querySelector(".playerInput") //For input
+const matchResult = document.querySelector("#matchResult");
+const gameResult = document.querySelector("#gameResult");
+const testInput = document.querySelector("#testInput");
+const cS = document.querySelector("#computerScore");
+const pS = document.querySelector("#playerScore");
+//const input = document.querySelector(".playerInput"); //For input
+const btnRock = document.querySelector("#btnRock");
+const btnPaper = document.querySelector("#btnPaper");
+const btnScissors = document.querySelector("#btnScissors");
 //let computerSelection = getComputerChoice(arr, idx);
 //let pChoice = (input.value);
 let playerSelection = null;
@@ -40,7 +43,7 @@ function match(playerSelection) {
    let computerSelection = getComputerChoice();
    
 
-
+/*
    let sign = prompt("Choose your weapon: Rock, Paper, Scissors", '');
 
    if (sign.toLowerCase() == rock) {
@@ -53,63 +56,137 @@ function match(playerSelection) {
       //console.log('Not a weapon!');
       alert(`${sign} is not a choice or a weapon!`)
    }
-
+*/
 
    if (playerSelection == 'rock' && computerSelection === rock) {
-      para.textContent = 'Tie: Rock ties with rock!';
-      alert('Tie: Rock ties with rock!');
+      matchResult.textContent = 'Tie: Rock ties with rock!';
+      //alert('Tie: Rock ties with rock!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
    } else if (playerSelection === 'rock' && computerSelection === paper) {
-      para.textContent = 'Lose: Rock loses to paper!';
-      alert('Lose: Rock loses to paper!');
+      matchResult.textContent = 'Lose: Rock loses to paper!';
+      //alert('Lose: Rock loses to paper!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'rock' && computerSelection === scissors) {
-      para.textContent = 'Win: Rock beats scissors!';
-      alert('Win: Rock beats scissors!');
+      matchResult.textContent = 'Win: Rock beats scissors!';
+      //alert('Win: Rock beats scissors!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == paper && computerSelection === rock) {
-      para.textContent = 'Win: Paper beats rock!';
-      alert('Win: Paper beats rock!');
+      matchResult.textContent = 'Win: Paper beats rock!';
+      //alert('Win: Paper beats rock!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == paper && computerSelection === paper) {
-      para.textContent = 'Tie: Paper ties with paper!';
-      alert('Tie: Paper ties with paper!');
+      matchResult.textContent = 'Tie: Paper ties with paper!';
+      //alert('Tie: Paper ties with paper!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
    } else if (playerSelection == paper && computerSelection === scissors) {
-      alert('Lose: Paper loses to scissors!');
+      //alert('Lose: Paper loses to scissors!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'scissors' && computerSelection === rock) {
-      para.textContent = 'Lose: Scissors loses to rock!';
-      alert('Lose: Scissors loses to rock!');
+      matchResult.textContent = 'Lose: Scissors loses to rock!';
+      //alert('Lose: Scissors loses to rock!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'scissors' && computerSelection === paper) {
-      para.textContent = 'Win: Scissors beats paper!';
-      alert('Win: Scissors beats paper!');
+      matchResult.textContent = 'Win: Scissors beats paper!';
+      //alert('Win: Scissors beats paper!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == 'scissors' && computerSelection === scissors) {
-      para.textContent = 'Tie: Scissors ties with scissors!';
-      alert('Tie: Scissors ties with scissors!');
+      matchResult.textContent = 'Tie: Scissors ties with scissors!';
+      //alert('Tie: Scissors ties with scissors!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
    } else {
-      para.textContent = 'turtle';
+      matchResult.textContent = 'turtle';
    }
 
 }
+
+function playerSelectionRock() {
+   match(rock,);
+   cS.textContent = `Computer Score: ${computerScore}`;
+   pS.textContent = `Player Score: ${playerScore}`;
+   
+   if (playerScore == 5) {
+      gameResult.textContent = 'Game result: You win!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else if (computerScore == 5) {
+      gameResult.textContent = 'Game result: You Lose!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else if (playerScore == 5 && computerScore == 5) {
+      gameResult.textContent = 'Game result: Tie!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else {
+      gameResult.textContent = '';
+   }
+}
+function playerSelectionPaper() {
+   match(paper,);
+   cS.textContent = `Computer Score: ${computerScore}`;
+   pS.textContent = `Player Score: ${playerScore}`;
+
+   if (playerScore == 5) {
+      gameResult.textContent = 'Game result: You win!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else if (computerScore == 5) {
+      gameResult.textContent = 'Game result: You Lose!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else if (playerScore == 5 && computerScore == 5) {
+      gameResult.textContent = 'Game result: Tie!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else {
+      gameResult.textContent = '';
+   }
+}
+function playerSelectionScissors() {
+   match(scissors,);
+   cS.textContent = `Computer Score: ${computerScore}`;
+   pS.textContent = `Player Score: ${playerScore}`;
+
+   if (playerScore == 5) {
+      gameResult.textContent = 'Game result: You win!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else if (computerScore == 5) {
+      gameResult.textContent = 'Game result: You Lose!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else if (playerScore == 5 && computerScore == 5) {
+      gameResult.textContent = 'Game result: Tie!';
+      btnRock.disabled = true;
+      btnPaper.disabled = true;
+      btnScissors.disabled = true;
+   } else {
+      gameResult.textContent = '';
+   }
+}
+
 //console.log(match(playerSelection)) //initiates game
 
 //-- return results of last function, going to need results for later -DONE
@@ -170,17 +247,21 @@ function game() {
 
    
    if (playerScore > computerScore) {
-      paras.textContent = 'Game result: You win!';
+      gameResult.textContent = 'Game result: You win!';
    } else if (computerScore > playerScore) {
-      paras.textContent = 'Game result: You Lose!';
+      gameResult.textContent = 'Game result: You Lose!';
    } else if (playerScore == computerScore){
-      paras.textContent = 'Game result: Tie!';
+      gameResult.textContent = 'Game result: Tie!';
    } else {
-      paras.textContent = '';
+      gameResult.textContent = '';
    }
 }
 
 //console.log(game()); -- initiates game function
+
+btnRock.addEventListener('click', playerSelectionRock);
+btnPaper.addEventListener('click', playerSelectionPaper);
+btnScissors.addEventListener('click', playerSelectionScissors);
 
 //--TODO: (STATUS: DONE)
 //--repeat playRound() function 5 times -DONE
