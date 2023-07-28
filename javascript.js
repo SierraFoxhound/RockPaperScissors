@@ -22,11 +22,22 @@ const gameResult = document.querySelector("#gameResult");
 const testInput = document.querySelector("#testInput");
 const cS = document.querySelector("#computerScore");
 const pS = document.querySelector("#playerScore");
-//const input = document.querySelector(".playerInput"); //For input
 const btnRock = document.querySelector("#btnRock");
 const btnPaper = document.querySelector("#btnPaper");
 const btnScissors = document.querySelector("#btnScissors");
-const winRoundSoundEffect = document.getElementById("#winRoundSoundEffect");
+//----------------------------------------------------------Music Section START
+const btnThemeMusic = document.querySelector("#btnThemeMusic");
+let themeMusic = new Audio('fx/clickClockWood.mp3')
+themeMusic.volume = 0.05;
+let winRoundSoundEffect = new Audio('fx/mixkit-game-loot-win-2013.wav');
+winRoundSoundEffect.volume = 0.1;
+let looseRoundSoundEffect = new Audio('fx/mixkit-losing-bleeps-2026.wav');
+looseRoundSoundEffect.volume = 0.1;
+let winGameSoundEffect = new Audio('fx/mixkit-winning-chimes-2015.wav');
+winGameSoundEffect.volume = 0.15;
+let looseGameSoundEffect = new Audio('fx/mixkit-losing-marimba-2025.wav');
+looseGameSoundEffect.volume = 0.15;
+//----------------------------------------------------------Music Section END
 //let computerSelection = getComputerChoice(arr, idx);
 //let pChoice = (input.value);
 let playerSelection = null;
@@ -44,7 +55,7 @@ function match(playerSelection) {
    let computerSelection = getComputerChoice();
    
 
-/*
+/* Old input function
    let sign = prompt("Choose your weapon: Rock, Paper, Scissors", '');
 
    if (sign.toLowerCase() == rock) {
@@ -61,53 +72,56 @@ function match(playerSelection) {
 
    if (playerSelection == 'rock' && computerSelection === rock) {
       matchResult.textContent = 'Tie: Rock ties with rock!';
-      //alert('Tie: Rock ties with rock!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
    } else if (playerSelection === 'rock' && computerSelection === paper) {
       matchResult.textContent = 'Lose: Rock loses to paper!';
-      //alert('Lose: Rock loses to paper!');
+      looseRoundSoundEffect.currentTime = 0;
+      looseRoundSoundEffect.play();
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'rock' && computerSelection === scissors) {
       matchResult.textContent = 'Win: Rock beats scissors!';
-      //winRoundSoundEffect.play();---------FIX THIS!!!!
-      //alert('Win: Rock beats scissors!');
+      winRoundSoundEffect.currentTime = 0;
+      winRoundSoundEffect.play();
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == paper && computerSelection === rock) {
       matchResult.textContent = 'Win: Paper beats rock!';
-      //alert('Win: Paper beats rock!');
+      winRoundSoundEffect.currentTime = 0;
+      winRoundSoundEffect.play();
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == paper && computerSelection === paper) {
       matchResult.textContent = 'Tie: Paper ties with paper!';
-      //alert('Tie: Paper ties with paper!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
    } else if (playerSelection == paper && computerSelection === scissors) {
-      //alert('Lose: Paper loses to scissors!');
+      matchResult.textContent = 'Lose: Paper loses to scissors';
+      looseRoundSoundEffect.currentTime = 0;
+      looseRoundSoundEffect.play();
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'scissors' && computerSelection === rock) {
       matchResult.textContent = 'Lose: Scissors loses to rock!';
-      //alert('Lose: Scissors loses to rock!');
+      looseRoundSoundEffect.currentTime = 0;
+      looseRoundSoundEffect.play();
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return computerScore++
    } else if (playerSelection == 'scissors' && computerSelection === paper) {
       matchResult.textContent = 'Win: Scissors beats paper!';
-      //alert('Win: Scissors beats paper!');
+      winRoundSoundEffect.currentTime = 0;
+      winRoundSoundEffect.play();
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
       return playerScore++
    } else if (playerSelection == 'scissors' && computerSelection === scissors) {
       matchResult.textContent = 'Tie: Scissors ties with scissors!';
-      //alert('Tie: Scissors ties with scissors!');
       console.log(`Player chose ${playerSelection}!`);
       console.log(`Computer chose ${computerSelection}!`);
    } else {
@@ -115,7 +129,7 @@ function match(playerSelection) {
    }
 
 }
-
+// These next three functions get the rock, paper, and scissors buttons working
 function playerSelectionRock() {
    match(rock,);
    cS.textContent = `Computer Score: ${computerScore}`;
@@ -123,11 +137,15 @@ function playerSelectionRock() {
    
    if (playerScore == 5) {
       gameResult.textContent = 'Game result: You win!';
+      winGameSoundEffect.currentTime = 0;
+      winGameSoundEffect.play();
       btnRock.disabled = true;
       btnPaper.disabled = true;
       btnScissors.disabled = true;
    } else if (computerScore == 5) {
       gameResult.textContent = 'Game result: You Lose!';
+      looseGameSoundEffect.currentTime = 0;
+      looseGameSoundEffect.play();
       btnRock.disabled = true;
       btnPaper.disabled = true;
       btnScissors.disabled = true;
@@ -147,11 +165,15 @@ function playerSelectionPaper() {
 
    if (playerScore == 5) {
       gameResult.textContent = 'Game result: You win!';
+      winGameSoundEffect.currentTime = 0;
+      winGameSoundEffect.play();
       btnRock.disabled = true;
       btnPaper.disabled = true;
       btnScissors.disabled = true;
    } else if (computerScore == 5) {
       gameResult.textContent = 'Game result: You Lose!';
+      looseGameSoundEffect.currentTime = 0;
+      looseGameSoundEffect.play();
       btnRock.disabled = true;
       btnPaper.disabled = true;
       btnScissors.disabled = true;
@@ -170,12 +192,16 @@ function playerSelectionScissors() {
    pS.textContent = `Player Score: ${playerScore}`;
 
    if (playerScore == 5) {
-      gameResult.textContent = 'Game result: You win!';
+      gameResult.textContent = 'Game result: You win!'
+      winGameSoundEffect.currentTime = 0;
+      winGameSoundEffect.play();
       btnRock.disabled = true;
       btnPaper.disabled = true;
       btnScissors.disabled = true;
    } else if (computerScore == 5) {
       gameResult.textContent = 'Game result: You Lose!';
+      looseGameSoundEffect.currentTime = 0;
+      looseGameSoundEffect.play();
       btnRock.disabled = true;
       btnPaper.disabled = true;
       btnScissors.disabled = true;
@@ -188,19 +214,19 @@ function playerSelectionScissors() {
       gameResult.textContent = '';
    }
 }
+//This function is for the play music button by title
+function playThemeMusic() {
+   if (themeMusic.paused) {
+      themeMusic.play();
+      btnThemeMusic.textContent = 'Pause';
+   } else {
+      themeMusic.pause();
+      btnThemeMusic.textContent = 'Play';
+   }
+   
+}
 
-//console.log(match(playerSelection)) //initiates game
-
-//-- return results of last function, going to need results for later -DONE
-//--console.log results to see if it works -DONE
-//console.log(playerScore);
-//console.log(computerScore);
-
-
-
-/*--write new function called game().Use previous funciton inside of this
-to play 5 round games that keeps score and reports a winner or loser. - DONE
-*/
+//Old game function, not used at all
 function game() {
    console.log('Round 1!');
    match(playerSelection, );
@@ -259,32 +285,9 @@ function game() {
    }
 }
 
-//console.log(game()); -- initiates game function
 
+btnThemeMusic.addEventListener('click',playThemeMusic);
 btnRock.addEventListener('click', playerSelectionRock);
 btnPaper.addEventListener('click', playerSelectionPaper);
 btnScissors.addEventListener('click', playerSelectionScissors);
-
-//--TODO: (STATUS: DONE)
-//--repeat playRound() function 5 times -DONE
-//--use console.log to display results reach round and winner at the end -DONE
-//--Use prompt to get input from the user -DONE
-//----------------------------------------------------------
-
-//--Experimental input from user-- WIP
-/*
-input.addEventListener("change", function () {
-   let pChoice = (input.value);
-   if (pChoice.toLowerCase() == rock.toLowerCase()) {
-      game(match(rock, computerSelection));
-   } else if (pChoice.toLowerCase() == paper.toLowerCase()) {
-      game(match(paper, computerSelection));
-   } else if (pChoice.toLowerCase() == scissors.toLowerCase()) {
-      game(match(scissors, computerSelection));
-   } else {
-      testInput.textContent = 'Not an inputs';
-   }
-});
-*/
-
 

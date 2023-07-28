@@ -4,12 +4,14 @@ body {
     font-family: Roboto, sans-serif;
     margin: 0px;
     height: 100vh;
+    background-image: url(imgs/wallPaper.jpg);
+    background-size: cover;
+    color: azure;
 }
 
 .rpsContainer {
-    border-style: solid;
-        border-color: red;
-        display: flex;
+    /*border-style: solid;
+        border-color: red;*/
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -17,10 +19,16 @@ body {
     margin:auto;
 }
 
-.playZone {
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*.playZone {
     border-color: orange;
     border-style: solid;
-}
+}*/
 
 .rockImg {
     background-image: url(imgs/rock.jpg);
@@ -28,50 +36,57 @@ body {
     height: 350px;
     background-size:cover;
     position: relative;
+    border-radius: 15px;
 }
 .paperImg {
     background-image: url(imgs/paper.jpg);
     width: 300px;
     height: 350px;
     background-size:cover;
+    border-radius: 15px;
 }
 .scissorsImg {
     background-image: url(imgs/scissors.jpg);
     width: 300px;
     height: 350px;
     background-size:cover;
+    border-radius: 15px;
 }
 
 .resultContainer {
-border-style: solid;
-border-color: red;
+/*border-style: solid;
+border-color: red;*/
 display: flex;
 justify-content: space-around;
 margin: 50px 0px 50px 0px;
 padding: 30px 0px 30px 0px;
 background-color: darkslategrey;
+border-radius: 15px;
 }
 
 .matchContainer {
     padding: auto;
-    border-style: solid;
-        border-color: green;
-        background-color: lightslategrey;
-        padding: 15px;
+    /*border-style: solid;
+        border-color: green;*/
+    background-color: lightslategrey;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .scoreContainer {
-    border-style: solid;
-        border-color: blue;
+    /*border-style: solid;
+        border-color: blue;*/
     padding: auto;
     background-color: lightslategrey;
     padding: 15px;
+    border-radius: 15px;
 }
 
 .winnerContainer {
-    border-style: solid;
-        border-color: yellow;
-        padding: auto;
-        background-color: lightslategrey;
-        padding: 15px;
+    /*border-style: solid;
+        border-color: yellow;*/
+    padding: auto;
+    background-color: lightslategrey;
+    padding: 15px;
+    border-radius: 15px;
 }
